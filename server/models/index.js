@@ -139,18 +139,55 @@ const FeedInventory = sequelize.define('FeedInventory', {
 }, { tableName: 'feed_inventory' });
 
 const MilkProduction = sequelize.define('MilkProduction', {
-  farm_id: { type: DataTypes.INTEGER, allowNull: false },
-  cow_id: { type: DataTypes.INTEGER, allowNull: false },
-  morning_milk: { type: DataTypes.DECIMAL(8, 2), defaultValue: 0 },
-  evening_milk: { type: DataTypes.DECIMAL(8, 2), defaultValue: 0 },
-  total_milk: { type: DataTypes.DECIMAL(8, 2), defaultValue: 0 },
-  fat_percentage: DataTypes.DECIMAL(5, 2),
-  quality: { type: DataTypes.ENUM('A', 'B', 'C'), defaultValue: 'A' },
-  collection_date: { type: DataTypes.DATEONLY, allowNull: false },
+  farm_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+
+  cow_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+
+  morning_milk: {
+    type: DataTypes.DECIMAL(8,2),
+    defaultValue: 0
+  },
+
+  evening_milk: {
+    type: DataTypes.DECIMAL(8,2),
+    defaultValue: 0
+  },
+
+  total_milk: {
+    type: DataTypes.DECIMAL(8,2),
+    defaultValue: 0
+  },
+
+  milk_rate: {
+    type: DataTypes.DECIMAL(10,2),
+    defaultValue: 0
+  },
+
+  total_cost: {
+    type: DataTypes.DECIMAL(12,2),
+    defaultValue: 0
+  },
+
+  collection_date: {
+    type: DataTypes.DATEONLY,
+    allowNull: false
+  },
+
   notes: DataTypes.TEXT,
+
   created_by: DataTypes.INTEGER,
-  deleted_at: DataTypes.DATE,
-}, { tableName: 'milk_production' });
+
+  deleted_at: DataTypes.DATE
+
+}, {
+  tableName: 'milk_production'
+});
 
 const EggProduction = sequelize.define('EggProduction', {
   farm_id: { type: DataTypes.INTEGER, allowNull: false },
